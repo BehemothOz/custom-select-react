@@ -4,6 +4,12 @@ import './App.css';
 
 import Select from './Select';
 
+const divStyle = {
+  width: '100%',
+  display: 'flex',
+  justifyContent: 'center'
+}
+
 class App extends Component {
   render() {
     return (
@@ -16,7 +22,9 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p><br />
 
-        <Select />
+        <div style={divStyle}>
+          <Select />
+        </div>
 
       </div>
     );

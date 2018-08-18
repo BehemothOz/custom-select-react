@@ -1,0 +1,46 @@
+.select-root {
+  display: flex;
+  width: 250px;
+  height: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.42);
+  cursor: pointer;
+}
+
+.select-root:hover {
+  border-color: #000;
+}
+
+.select-value {
+  width: 90%;
+  height: 100%;
+    /* color: currentColor;
+    border: 0;
+    margin: 0;
+    padding: 6px 0 7px;
+    display: block;
+    min-width: 0;
+    flex-grow: 1;
+    box-sizing: content-box;
+    background: none;
+    vertical-align: middle;
+    -webkit-tap-highlight-color: transparent;
+
+    width: calc(100% - 32px);
+    cursor: pointer;
+    min-width: 16px;
+    user-select: none;
+    padding-right: 32px;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+
+    width: auto;
+    overflow: hidden;
+    min-height: 1.1875em;
+    white-space: nowrap;
+    text-overflow: ellipsis; */
+}
+
+.select-arrow-button {
+  width: 10%;
+  height: 100%;
+}
