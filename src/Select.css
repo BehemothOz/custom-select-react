@@ -43,4 +43,9 @@
 .select-arrow-button {
   width: 10%;
   height: 100%;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
 }
