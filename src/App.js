@@ -23,6 +23,7 @@ class App extends Component {
         </p><br />
 
         <div style={divStyle}>
+          {/* style / items */}
           <Select />
         </div>
 
