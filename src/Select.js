@@ -10,9 +10,13 @@ class Select extends Component {
     super(props);
   }
 
+  // refs
+  getItemsContainerRef = (node) => this._itemsContainer = node;
+  getSelectRootRef = (node) => this._SelectRoot = node;
+
   renderItemsContainer() {
     return (
-      <div className="select-items-container">
+      <div className="select-items-container" ref={ this.getItemsContainerRef }>
         <ul className="select-items-list">
           { this.props.items.map(item => <li className="select-items-list-item">{item}</li>) }
         </ul>
@@ -23,7 +27,7 @@ class Select extends Component {
   render() {
     return (
       <React.Fragment>
-        <div className="select-root">
+        <div className="select-root" ref={ this.getSelectRootRef }>
           <div className="select-value">Default value</div>
           <button className="select-arrow-button">
             <svg focusable="false" viewBox="0 0 24 24" aria-hidden="true">
