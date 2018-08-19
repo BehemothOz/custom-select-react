@@ -3,8 +3,8 @@ import './Select.css';
 
 class Select extends Component {
   static defaultProps = {
-    // items: []
-    items: [`Item one`, `Item two`, `Item three`, `Item four`]
+    items: [],
+    value: 'def'
   }
 
   constructor(props) {
@@ -54,24 +54,31 @@ class Select extends Component {
 
   renderItemsContainer() {
     return (
-      <div
-        className="select-items-container"
-        ref={ this.getItemsContainerRef }
-        style={ this.state.itemContainerBox }>
-        <ul className="select-items-list">
-          { this.props.items.map(item => <li className="select-items-list-item">{item}</li>) }
-        </ul>
+      <div className="select-items-container-wrapper"
+        onClick={ this.closeItemsContainer }>
+        <div
+          className="select-items-container"
+          ref={ this.getItemsContainerRef }
+          style={ this.state.itemContainerBox }>
+          <ul className="select-items-list">
+            { this.props.items.map(item =>
+                <li
+                  className={`select-items-list-item ${ this.props.value === item ? `active` : `` }`}
+                  onClick={() => this.props.onChoose(item) }>{ item }</li>) }
+          </ul>
+        </div>
       </div>
     )
   }
 
   render() {
     // const { style, value, valueComponent } = this.props;
+    const { value } = this.props;
     const { opened } = this.state;
     return (
       <React.Fragment>
         <div className="select-root" ref={ this.getSelectRootRef }>
-          <div className="select-value" onClick={ this.openItemsContainer }>Default value</div>
+          <div className="select-value" onClick={ this.openItemsContainer }>{ value }</div>
           <button className="select-arrow-button" onClick={ this.openItemsContainer }>
             <svg focusable="false" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M7 10l5 5 5-5z"></path>

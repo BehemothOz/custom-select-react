@@ -30,6 +30,13 @@
   cursor: pointer;
 }
 
+.select-items-container-wrapper {
+  position: fixed;
+  /* left: 0; top: 0; right: 0; bottom: 0; */
+  width: 100vw;
+  height: 100vh;
+}
+
 .select-items-container {
   position: fixed;
   /* min-width: 120px; */
@@ -57,4 +64,8 @@
 
 .select-items-list li:hover {
   background-color: rgba(0, 0, 0, 0.08);
+}
+
+.select-items-list li.active {
+  background-color: red;
 }
