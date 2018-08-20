@@ -18,8 +18,15 @@ class Select extends Component {
 
   getItemsContainerBox() {
     if (!this._selectRoot) return;
+
+    const selectRootBoundary = this._selectRoot.getBoundingClientRect();
+    const top = selectRootBoundary.top;
+    const left = selectRootBoundary.left;
+
     return {
-      width: `${this._selectRoot.offsetWidth}px`
+      width: `${this._selectRoot.offsetWidth}px`,
+      top: `${top}px`,
+      left: `${left}px`
     }
   }
 
@@ -40,6 +47,13 @@ class Select extends Component {
         ...metric
       }
     }))
+
+    // this.setState(
+    //   state => ({
+    //     opened: true,
+    //   }),
+    //   this.setItemsConteinerBox,
+    // );
   }
 
   closeItemsContainer = () => {
