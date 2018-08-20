@@ -5,17 +5,18 @@ import './Select.css';
 
 class Select extends Component {
   static defaultProps = {
+    value: 'Default value',
     items: [],
-    value: 'def'
   }
 
-  constructor(props) {
-    super(props);
+  static propTypes = {
+    items: PropTypes.array,
+    value: PropTypes.string
+  }
 
-    this.state = {
-      itemContainerBox: {},
-      opened: false
-    }
+  state = {
+    itemContainerBox: {},
+    opened: false
   }
 
   getItemsContainerBox() {
@@ -82,7 +83,9 @@ class Select extends Component {
                 <li
                   key={ i }
                   className={`select-items-list-item ${ value === item ? `active` : `` }`}
-                  onClick={() => onChoose(item) }>{ item }</li>) }
+                  onClick={() => onChoose(item) }>{ item }
+                </li>)
+            }
           </ul>
         </div>
       </div>

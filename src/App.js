@@ -15,12 +15,13 @@ class App extends Component {
     super(props);
 
     this.state = {
-      value: null,
+      value: 'Select value',
       items: [`Item one`, `Item two`, `Item three`, `Item four`]
     }
   }
 
   onChooseItem = (item) => {
+    console.log(item)
     this.setState({
       value: item
     })
@@ -33,7 +34,6 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
         </header>
         <br />
         <div style={ divStyle }>
