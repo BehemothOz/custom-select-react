@@ -67,6 +67,7 @@ class Select extends Component {
   getSelectRootRef = (node) => this._selectRoot = node;
 
   renderItemsContainer() {
+    const { items, value, onChoose} = this.props;
     return (
       <div className="select-items-container-wrapper"
         onClick={ this.closeItemsContainer }>
@@ -75,10 +76,11 @@ class Select extends Component {
           ref={ this.getItemsContainerRef }
           style={ this.state.itemContainerBox }>
           <ul className="select-items-list">
-            { this.props.items.map(item =>
+            { items.map((item, i) =>
                 <li
-                  className={`select-items-list-item ${ this.props.value === item ? `active` : `` }`}
-                  onClick={() => this.props.onChoose(item) }>{ item }</li>) }
+                  key={ i }
+                  className={`select-items-list-item ${ value === item ? `active` : `` }`}
+                  onClick={() => onChoose(item) }>{ item }</li>) }
           </ul>
         </div>
       </div>
