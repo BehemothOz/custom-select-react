@@ -32,17 +32,11 @@ class Select extends Component {
   }
 
   getItemsContainerBox() {
-    console.log(`start`)
-    console.log(this._itemsContainer)
-    console.log(this._selectRoot)
     if (!this._selectRoot || !this._itemsContainer) return;
-    console.log(`end`)
+
     const selectRootBoundary = this._selectRoot.getBoundingClientRect();
-    // const itemsContainerBoundary = this._itemsContainer.getBoundingClientRect();
-    console.log(this._itemsContainer)
     const left = selectRootBoundary.left;
-    const bottom =
-      selectRootBoundary.top + this._itemsContainer.offsetHeight;
+    const bottom = selectRootBoundary.top + this._itemsContainer.offsetHeight;
     const top =
       bottom > window.innerHeight
         ? selectRootBoundary.bottom - this._itemsContainer.offsetHeight
@@ -57,10 +51,7 @@ class Select extends Component {
 
   setItemsContainerBox = () => { // ?
     const itemContainerBox = this.getItemsContainerBox();
-    console.log(itemContainerBox)
-    this.setState({
-      itemContainerBox
-    })
+    this.setState({ itemContainerBox });
   }
 
   openItemsContainer = () => {
