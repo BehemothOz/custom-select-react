@@ -19,12 +19,34 @@ class Select extends Component {
     opened: false
   }
 
-  getItemsContainerBox() {
-    if (!this._selectRoot) return;
+  componentDidMount() {
+    window.addEventListener(`scroll`, this.handleWindowScroll)
+  }
 
+  componentWillUnmount() {
+    window.addEventListener(`scroll`, this.handleWindowScroll)
+  }
+
+  handleWindowScroll = () => {
+    if ( this.state.opened ) this.closeItemsContainer();
+  }
+
+  getItemsContainerBox() {
+    console.log(`start`)
+    console.log(this._itemsContainer)
+    console.log(this._selectRoot)
+    if (!this._selectRoot || !this._itemsContainer) return;
+    console.log(`end`)
     const selectRootBoundary = this._selectRoot.getBoundingClientRect();
-    const top = selectRootBoundary.top;
+    // const itemsContainerBoundary = this._itemsContainer.getBoundingClientRect();
+    console.log(this._itemsContainer)
     const left = selectRootBoundary.left;
+    const bottom =
+      selectRootBoundary.top + this._itemsContainer.offsetHeight;
+    const top =
+      bottom > window.innerHeight
+        ? selectRootBoundary.bottom - this._itemsContainer.offsetHeight
+        : selectRootBoundary.top;
 
     return {
       width: `${this._selectRoot.offsetWidth}px`,
@@ -33,30 +55,16 @@ class Select extends Component {
     }
   }
 
-  setItemsContainerBox() {
+  setItemsContainerBox = () => { // ?
     const itemContainerBox = this.getItemsContainerBox();
+    console.log(itemContainerBox)
     this.setState({
       itemContainerBox
     })
   }
 
   openItemsContainer = () => {
-    const metric = this.getItemsContainerBox();
-    console.log(metric);
-    this.setState(state => ({
-      opened: true,
-      itemContainerBox: {
-        ...state.itemContainerBox,
-        ...metric
-      }
-    }))
-
-    // this.setState(
-    //   state => ({
-    //     opened: true,
-    //   }),
-    //   this.setItemsConteinerBox,
-    // );
+    this.setState({ opened: true }, this.setItemsContainerBox );
   }
 
   closeItemsContainer = () => {

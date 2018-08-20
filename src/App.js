@@ -6,8 +6,10 @@ import Select from './Select';
 
 const divStyle = {
   width: '100%',
+  height: '160vh',
   display: 'flex',
-  justifyContent: 'center'
+  justifyContent: 'center',
+  alignItems: `center`
 }
 
 class App extends Component {
