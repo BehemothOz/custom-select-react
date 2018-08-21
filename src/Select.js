@@ -3,15 +3,20 @@ import PropTypes from 'prop-types';
 
 import './Select.css';
 
+import IconSelect from './IconSelect';
+
 class Select extends Component {
   static defaultProps = {
     value: 'Default value',
     items: [],
+    icon: IconSelect
   }
 
   static propTypes = {
     items: PropTypes.array,
-    value: PropTypes.string
+    value: PropTypes.string,
+    style: PropTypes.object,
+    onChoose: PropTypes.func
   }
 
   state = {
@@ -93,16 +98,14 @@ class Select extends Component {
 
   render() {
     // const { style, value, valueComponent } = this.props;
-    const { value } = this.props;
+    const { value, style, icon: IconSelect } = this.props;
     const { opened } = this.state;
     return (
       <React.Fragment>
-        <div className="select-root" ref={ this.getSelectRootRef }>
+        <div className="select-root" style={style} ref={ this.getSelectRootRef }>
           <div className="select-value" onClick={ this.openItemsContainer }>{ value }</div>
           <button className="select-arrow-button" onClick={ this.openItemsContainer }>
-            <svg focusable="false" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M7 10l5 5 5-5z"></path>
-            </svg>
+            <IconSelect />
           </button>
         </div>
 

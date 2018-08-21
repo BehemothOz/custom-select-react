@@ -6,10 +6,6 @@
   cursor: pointer;
 }
 
-.select-root:hover {
-  border-color: #000;
-}
-
 .select-value {
   display: flex;
   align-items: center;
@@ -28,6 +24,15 @@
   border: none;
   outline: none;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.select-arrow-button img,
+.select-arrow-button svg {
+  width: 20px;
+  height: 20px;
 }
 
 .select-items-container-wrapper {
