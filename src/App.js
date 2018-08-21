@@ -33,15 +33,8 @@ class App extends Component {
     const { value, items } = this.state;
 
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-        </header>
-        <br />
-        <div style={ divStyle }>
-          <Select value={ value } items={ items } onChoose={ this.onChooseItem }/>
-        </div>
-
+      <div style={ divStyle }>
+        <Select value={ value } items={ items } onChoose={ this.onChooseItem }/>
       </div>
     );
   }
