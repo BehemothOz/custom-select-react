@@ -40,17 +40,17 @@ class App extends Component {
     return (
       <div className="container">
         <div className="line">
-          <h2 className="line-title">Default select</h2>
+          <h3 className="line-title">Default select</h3>
           <Select value={ value } items={ items } onChoose={ this.onChooseItem } />
         </div>
 
         <div className="line">
-          <h2 className="line-title">Custom style select</h2>
+          <h3 className="line-title">Custom style select</h3>
           <Select value={ value } items={ items } onChoose={ this.onChooseItem } style={ customStyleOne } />
         </div>
 
         <div className="line">
-          <h2 className="line-title">Custom icon select</h2>
+          <h3 className="line-title">Custom style and icon select</h3>
           <Select value={ value } items={ items } onChoose={ this.onChooseItem } style={ customStyleTwo } icon={ Icon }/>
         </div>
       </div>
